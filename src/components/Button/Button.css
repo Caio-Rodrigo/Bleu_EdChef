@@ -1,0 +1,20 @@
+.btn {
+	display: flex;
+	justify-content: center;
+  padding: .5rem 1rem;
+  border-radius: 10px;
+  border-style: none;
+  background-color: rgba(216, 53, 8, 0.746);
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  transition: all .5s;
+}
+
+.btn:hover{
+  background-color: rgba(8, 70, 216, 0.593);
+}
+
+.btn:active{
+  background-color: rgba(8, 216, 147, 0.87);
+}
