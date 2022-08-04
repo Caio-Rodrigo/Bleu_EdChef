@@ -1,7 +1,8 @@
 import { menu } from '../../mocks/menu';
-import Button from 'components/Button';
-import './Menu.css';
+// import Button from 'components/Button';
 
+import './Menu.css';
+import Modal from 'components/Modal';
 
 export default function Menu() {
 	return (
@@ -14,9 +15,9 @@ export default function Menu() {
 						<div>
 							<img src={item.image} alt="" className="menuIten_iamgen" />
 						</div>
-		
 						<div className="btn-container">
-							<Button type="button" item={item.description} >Leia-me</Button>
+							<Modal/>
+							{/* <Button item={item.name} id="btn-leiaMe" nome="Leia-me" /> */}
 						</div>
 					</div>
 				</div>
@@ -24,4 +25,3 @@ export default function Menu() {
 		</div>
 	);
 }
-
