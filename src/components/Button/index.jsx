@@ -4,7 +4,7 @@ import './Button.css';
 
 export default function Button(props) {
 	return (
-		<button className="btn" id={props.id} onClick={props.event}>
+		<button className="btn" onClick={props.event}>
 			{props.nome}
 		</button>
 	);

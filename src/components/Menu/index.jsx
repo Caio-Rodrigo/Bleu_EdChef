@@ -16,8 +16,7 @@ export default function Menu() {
 							<img src={item.image} alt="" className="menuIten_iamgen" />
 						</div>
 						<div className="btn-container">
-							<Modal/>
-							{/* <Button item={item.name} id="btn-leiaMe" nome="Leia-me" /> */}
+							<Modal titulo={item.name} descricao={item.description}/>
 						</div>
 					</div>
 				</div>
