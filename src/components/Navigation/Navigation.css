@@ -3,18 +3,28 @@
 	padding: 0;
 }
 
+#nav {
+	align-items: center;
+	background-color: rgb(255, 255, 255);
+	border-radius: 20px;
+	display: flex;
+	justify-content: space-between;
+}
+
 #list {
 	list-style: none;
 	display: flex;
-	justify-content: flex-end;
-	flex-wrap: wrap;
-	background-color: rgb(255, 255, 255);
-	border-radius: 20px;
 	padding: 0.5rem;
-	align-items: center;
+  font-size: 1.3rem;
 }
 
-
+.carrinho {
+	/* background-color: #00c9ff5c; */
+	/* border-radius: 1.2rem; */
+	display: flex;
+	font-size: 2rem;
+	padding: 1rem;
+}
 
 li a {
 	display: flex;
@@ -32,16 +42,20 @@ a:hover {
 	color: rgb(26, 25, 25);
 }
 
-
 @media (max-width: 900px) {
-#list{
-	flex-direction: column;
-	flex-wrap: nowrap;
-	align-items: center;
+	#nav{
+		flex-direction: column;
+	}
+
+	#list {
+		flex-direction: column;
+		flex-wrap: nowrap;
+		align-items: center;
+	}
+	a:hover {
+		width: 60vw;
+		justify-content: center;
+	}
+
 }
 
-	a:hover{
-	width: 60vw;
-	justify-content: center
-	}
-}	

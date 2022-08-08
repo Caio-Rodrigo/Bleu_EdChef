@@ -1,20 +1,67 @@
 .btn {
 	display: flex;
 	justify-content: center;
-  padding: .5rem 1rem;
-  border-radius: 10px;
-  border-style: none;
-  background-color: rgba(216, 53, 8, 0.746);
-  font-weight: bold;
-  color: #fff;
-  cursor: pointer;
-  transition: all .5s;
+	padding: 0.5rem 1rem;
+	border-radius: 10px;
+	border-style: none;
+	background-color: rgba(216, 53, 8, 0.746);
+	font-weight: bold;
+	color: #fff;
+	cursor: pointer;
+	transition: all 0.5s;
+	margin: 0.3rem .3em;
+	width: 100%;
 }
 
-.btn:hover{
-  background-color: rgba(8, 70, 216, 0.593);
+.btn:hover {
+	background-color: rgba(8, 70, 216, 0.593);
 }
 
-.btn:active{
-  background-color: rgba(8, 216, 147, 0.87);
+.btn:active {
+	background-color: rgba(8, 216, 147, 0.87);
+}
+
+.btn.remove.close {
+	background-color: #f5c30c;
+	color: #000;
+	border-radius: 2rem;
+	padding: 0.4rem;
+}
+
+.btn.remove.close:hover {
+	background-color: #bc0e08;
+	color: #fff;
+}
+
+.btn.remove {
+	background-color: #f51c0c;
+
+}
+
+.btn.remove:hover {
+	background-color: #af170c;
+}
+
+@media(max-width:300px){
+	.btn.remove{
+		padding: 9px;
+	}
+}
+
+.btn.add {
+	background-color: #0c7df5;
+}
+
+.btn.add:hover {
+	background-color: #07c42a;
+}
+
+.btn.buy {
+	background-color: #0c7df573;
+	font-size: 2rem;
+	border-radius: 3rem;
+}
+
+.btn.buy:hover {
+	background-color: #07c42a;
 }

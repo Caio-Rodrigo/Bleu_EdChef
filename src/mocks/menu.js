@@ -2,7 +2,7 @@ export const menu = [
 	{
 		name: 'Tiramisu',
 		description:
-			"A sobremesa italiana tiramisu significa literalmente “puxa-me para cima” e dá-te um verdadeiro impulso. Consiste em camadas de savoiardi (dedos longos italianos) embebidos em café e licor, intercalados com camadas de mascarpone cremoso misturado com ovo e finalizado com uma pitada de cacau em pó.",
+			'A sobremesa italiana tiramisu significa literalmente “puxa-me para cima” e dá-te um verdadeiro impulso. Consiste em camadas de savoiardi (dedos longos italianos) embebidos em café e licor, intercalados com camadas de mascarpone cremoso misturado com ovo e finalizado com uma pitada de cacau em pó.',
 		image:
 			'https://www.takeaway.com/foodwiki/uploads/sites/11/2019/08/tiramisu_2-960x1080.jpg',
 	},
@@ -28,23 +28,31 @@ export const menu = [
 			'https://www.takeaway.com/foodwiki/uploads/sites/11/2019/08/panna_cotta_2-1080x1080.jpg',
 	},
 	{
-		name:'Calzone',
-		description:'Um calzone italiano é uma pizza em forma de meia-lua onde o recheio é colocado na base duplamente dobrada. Calzone significa "calça" ou "perna da calça" e é originalmente a versão street food da pizza redonda: como o recheio não pode cair, a pizza é mais fácil de transportar.',
-		image:'https://www.takeaway.com/foodwiki/uploads/sites/11/2019/08/calzone_1-1080x960.jpg'
+		name: 'Calzone',
+		description:
+			'Um calzone italiano é uma pizza em forma de meia-lua onde o recheio é colocado na base duplamente dobrada. Calzone significa "calça" ou "perna da calça" e é originalmente a versão street food da pizza redonda: como o recheio não pode cair, a pizza é mais fácil de transportar.',
+		image:
+			'https://www.takeaway.com/foodwiki/uploads/sites/11/2019/08/calzone_1-1080x960.jpg',
 	},
 	{
-		name:'Taco',
-		description:'Um autêntico taco mexicano é uma tortilla pequena e macia recém-saída do forno, coberta com vários ingredientes diferentes, como carnes picantes, alface, feijão, queijo cremoso e muito mais para formar um saboroso todo. É o que há de melhor em comida de rua mexicana.',
-		image:'https://www.takeaway.com/foodwiki/uploads/sites/11/2019/08/tacos_3-1080x983.jpg'
+		name: 'Taco',
+		description:
+			'Um autêntico taco mexicano é uma tortilla pequena e macia recém-saída do forno, coberta com vários ingredientes diferentes, como carnes picantes, alface, feijão, queijo cremoso e muito mais para formar um saboroso todo. É o que há de melhor em comida de rua mexicana.',
+		image:
+			'https://www.takeaway.com/foodwiki/uploads/sites/11/2019/08/tacos_3-1080x983.jpg',
 	},
 	{
-		name:'Burrito',
-		description:'Um burrito é uma tortilha de trigo enrolada com recheio; um tipo de cozinha mexicana ou Tex-Mex. Muitos recheios são possíveis, como carne picada temperada, frango, salmão, abacate ou legumes grelhados. Burrito significa literalmente "burrinho", embora ninguém saiba exatamente o porquê.',
-		image:'https://www.takeaway.com/foodwiki/uploads/sites/11/2019/08/burritos_2-1080x960.jpg'
+		name: 'Burrito',
+		description:
+			'Um burrito é uma tortilha de trigo enrolada com recheio; um tipo de cozinha mexicana ou Tex-Mex. Muitos recheios são possíveis, como carne picada temperada, frango, salmão, abacate ou legumes grelhados. Burrito significa literalmente "burrinho", embora ninguém saiba exatamente o porquê.',
+		image:
+			'https://www.takeaway.com/foodwiki/uploads/sites/11/2019/08/burritos_2-1080x960.jpg',
 	},
 	{
-		name:'Guacamole',
-		description:"Guacamole é um prato mexicano que contém abacate, pimenta verde, limão e outros ingredientes opcionais, como cebola picadinha, cubos de tomate e alho. É comido em todo o mundo como molho, molho ou salada.",
-		image:'https://www.takeaway.com/foodwiki/uploads/sites/11/2019/08/guacamole_2-1080x932.jpg'
+		name: 'Guacamole',
+		description:
+			'Guacamole é um prato mexicano que contém abacate, pimenta verde, limão e outros ingredientes opcionais, como cebola picadinha, cubos de tomate e alho. É comido em todo o mundo como molho, molho ou salada.',
+		image:
+			'https://www.takeaway.com/foodwiki/uploads/sites/11/2019/08/guacamole_2-1080x932.jpg',
 	},
 ];

@@ -1,14 +1,12 @@
-
-
 .Home_container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 @media (max-width: 350px) {
-  .Home_container {
-    justify-content: unset;
-    flex-direction: column;
-  }
+	.Home_container {
+		justify-content: unset;
+		flex-direction: column;
+	}
 }

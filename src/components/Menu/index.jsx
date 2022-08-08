@@ -1,25 +1,33 @@
+import Item from '../Item';
 import { menu } from '../../mocks/menu';
-// import Button from 'components/Button';
-
+import { useState } from 'react';
 import './Menu.css';
-import Modal from 'components/Modal';
 
 export default function Menu() {
+	
+	const [itemSelected, setItemSelected] = useState({});
+
+	const addItem = (itemIndex) => {
+		const item = { [itemIndex]: Number(itemSelected[itemIndex] || 0) + 1 };
+		setItemSelected({ ...itemSelected, ...item });
+	};
+
+	const removeItem = (itemIndex) => {
+		const item = { [itemIndex]: Number(itemSelected[itemIndex] || 0) -1 }
+		setItemSelected({...itemSelected, ...item});
+	}
+
 	return (
 		<div className="menuConteiner">
-			{menu.map((item, index) => (
-				<div className="menuIten" key={`menuIten-${index}`}>
-					<div>
-						<div className="menuIten_name">{item.name}</div>
-						{/* {console.log(item.key);} */}
-						<div>
-							<img src={item.image} alt="" className="menuIten_iamgen" />
-						</div>
-						<div className="btn-container">
-							<Modal titulo={item.name} descricao={item.description}/>
-						</div>
-					</div>
-				</div>
+			{menu.map((iten, index) => (
+				<Item 
+				key={`menuIten-${index}`} 
+				iten={iten}
+				quantitySelected={itemSelected[index]}
+				index={index}
+				onAdd={index => addItem(index)}
+				onRemove={index => removeItem(index)}
+				/>
 			))}
 		</div>
 	);

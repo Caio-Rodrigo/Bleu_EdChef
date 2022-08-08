@@ -1,6 +1,6 @@
 import './Modal.css';
 import React from 'react';
-import Button from 'components/Button';
+import Button from '../Button/index';
 
 export default function Modal(props) {
 	const [Active, setActive] = React.useState(false);
@@ -13,10 +13,10 @@ export default function Modal(props) {
 
 	return (
 		<>
-			<Button nome="Leia-me" event={ButtonOn} />
+			<Button clase="btn" nome="Descrição" event={ButtonOn} />
 
 			<div className={`${Active ? 'modal-ativo' : 'modal'}`}>
-					<Button nome="X" event={ButtonOff} />
+				<Button clase="btn remove close" nome="X" event={ButtonOff} />
 				<div className="modal-body">
 					<div className="modal-title">
 						<h1>{props.titulo}</h1>
