@@ -1,5 +1,5 @@
 import './Home.css';
-import Menu from '../Menu/index';
+import Menu from '../../Menu/index';
 
 export default function Home() {
 	return (
