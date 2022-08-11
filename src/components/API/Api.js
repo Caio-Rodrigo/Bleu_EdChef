@@ -1,7 +1,7 @@
 const itemContext = {
 	itemEndPoint: () => `${Api.baseUrl}/Menu`,
 	itemList: () => `${itemContext.itemEndPoint()}/allItens`,
-	itemById: (id) => `${itemContext.itemEndPoint()}/Itens/${id}`,
+	itemById: (id) => `${itemContext.itemEndPoint()}/itens/${id}`,
 	createItem: () => `${itemContext.itemEndPoint()}/createItem`,
 	updateItem: (id) => `${itemContext.itemEndPoint()}/updateItem/${id}`,
 	deleteItem: (id) => `${itemContext.itemEndPoint()}/deleteItem/${id}`,
@@ -19,6 +19,6 @@ const auth = {
 };
 
 export const Api = {
-	baseUrl: 'https://api-restaurant-menu.herokuapp.com/',
+	baseUrl: 'https://api-restaurant-menu.herokuapp.com',
 	...itemContext,
 };

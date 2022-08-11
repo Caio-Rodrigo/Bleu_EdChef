@@ -1,4 +1,3 @@
-import Modal from '../Modal';
 import Button from '../Button';
 import './Item.css';
 
@@ -8,6 +7,7 @@ export default function Item({
 	index,
 	onAdd,
 	onRemove,
+	clickItem,
 }) {
 	const badgeCounter = (canRender, index) =>
 		Boolean(canRender) && (
@@ -16,14 +16,19 @@ export default function Item({
 
 	const removeButton = (canRender, index) =>
 		Boolean(canRender) && (
-			<Button clase="btn remove" nome="Remover" event={() => onRemove(index)} />
+			<Button
+				clase="btn remove"
+				nome="Remover"
+				event={(e) => {
+					e.stopPropagation();
+					onRemove(index);
+				}}
+			/>
 		);
 
 	return (
 		<div className="menuItem">
 			{badgeCounter(quantitySelected, index)}
-
-			
 
 			<div>
 				<div className="menuItem_name">{iten.name}</div>
@@ -31,8 +36,19 @@ export default function Item({
 					<img src={iten.image} alt="" className="menuItem_iamgen" />
 				</div>
 				<div className="btn-container">
-					<Modal titulo={iten.name} descricao={iten.description} />
-					<Button clase="btn add" nome="Comprar" event={() => onAdd(index)} />
+					<Button
+						clase="btn"
+						nome="Detalhes"
+						event={() => clickItem(iten.id)}
+					/>
+					<Button
+						clase="btn add"
+						nome="Comprar"
+						event={(e) => {
+							e.stopPropagation();
+							onAdd(index);
+						}}
+					/>
 					{removeButton(quantitySelected, index)}
 				</div>
 			</div>

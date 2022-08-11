@@ -24,13 +24,15 @@
 .btn.remove.close {
 	background-color: #f5c30c;
 	color: #000;
-	border-radius: 2rem;
+	border-radius: 50%;
 	padding: 0.4rem;
+	width: 1.5rem;
 }
 
 .btn.remove.close:hover {
 	background-color: #bc0e08;
 	color: #fff;
+	
 }
 
 .btn.remove {
