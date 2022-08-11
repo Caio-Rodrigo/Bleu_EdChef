@@ -1,9 +1,9 @@
-import "./Overlay.css";
+import './Overlay.css';
 
 export default function Overlay({ children, overlayClick }) {
-  return (
-    <div className="Overlay" onClick={() => overlayClick()}>
-      {children}
-    </div>
-  );
+	return (
+		<div className="Overlay" onClick={() => overlayClick()}>
+			{children}
+		</div>
+	);
 }
