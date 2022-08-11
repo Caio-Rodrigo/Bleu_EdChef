@@ -1,5 +1,5 @@
 import "./Modal.css";
-import Overlay from "../index";
+import Overlay from "../Overlay/index";
 
 export default function Modal({ children, closeModal }) {
   const handleClick = (e, canClose) => {

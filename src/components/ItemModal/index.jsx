@@ -1,5 +1,5 @@
 import "./ItemModal.css";
-import Modal from "../index";
+import Modal from "../Modal/index";
 
 function ItemDetalhesModal({ item, closeModal }) {
   return (

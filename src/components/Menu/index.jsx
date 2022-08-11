@@ -1,8 +1,8 @@
 import Item from '../Item';
 import { useState, useEffect } from 'react';
 import { ItemService } from '../service/Item.Service';
+import ItemDetalhesModal from '../../components/ItemModal/index';
 import './Menu.css';
-import ItemDetalhesModal from '../Overlay/Modal/ItemModal/index';
 
 export default function Menu() {
 	const [menu, setMenu] = useState([]);
@@ -29,7 +29,7 @@ export default function Menu() {
 	const getById = async (itemId) => {
 		const response = await ItemService.getById(itemId);
 		setItemModal(response);
-		console.log(itemId)
+		console.log(itemId);
 	};
 
 	useEffect(() => {
@@ -46,18 +46,16 @@ export default function Menu() {
 					index={index}
 					onAdd={(index) => addItem(index)}
 					onRemove={(index) => removeItem(index)}
-					clickItem={(itemId) =>  getById(itemId)}
-					
+					clickItem={(itemId) => getById(itemId)}
 				/>
 			))}
-			…
+
 			{itemModal && (
 				<ItemDetalhesModal
 					item={itemModal}
 					closeModal={() => setItemModal(false)}
 				/>
 			)}
-			…
 		</div>
 	);
 }
