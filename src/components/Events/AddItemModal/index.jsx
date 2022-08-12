@@ -72,7 +72,7 @@ export default function AddItemModal({ closeModal }) {
 						/>
 					</div>
 					<div className="btnCreate">
-						<Button clase="btn create" nome="Cadastrar" type="submit" />
+						<Button clase="btn create" nome="Cadastrar" type="submit" event={createItem} />
 					</div>
 				</form>
 			</div>
