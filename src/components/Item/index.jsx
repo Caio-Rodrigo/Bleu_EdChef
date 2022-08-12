@@ -1,4 +1,4 @@
-import Button from '../Button';
+import Button from '../Events/Button/index';
 import './Item.css';
 
 export default function Item({

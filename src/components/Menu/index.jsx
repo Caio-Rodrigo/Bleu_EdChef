@@ -1,7 +1,7 @@
 import Item from '../Item';
 import { useState, useEffect } from 'react';
 import { ItemService } from '../service/Item.Service';
-import ItemDetalhesModal from '../../components/ItemModal/index';
+import ItemDetalhesModal from '../../components/Events/ItemModal/index';
 import './Menu.css';
 
 export default function Menu() {
