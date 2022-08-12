@@ -1,0 +1,42 @@
+.AdicionaItemModal {
+	background: rgb(255 255 255 / 39%);
+	border-radius: 10px;
+	box-sizing: border-box;
+	display: flex;
+	font-family: auto;
+	justify-content: center;
+	max-height: 350px;
+	padding: 1rem;
+	position: relative;
+	width: 80%;
+}
+
+.AdicionaItemModal form div {
+	display: flex;
+	margin: 15px 0;
+}
+
+.AdicionaItemModal form {
+	width: 100%;
+	text-align: center;
+}
+
+.AdicionaItemModal div input {
+	border: 2px solid;
+	background: rgb(255 255 255 / 69%);
+	width: 90%;
+	margin-left: 15px;
+	border-radius: 5px;
+	height: 20px;
+	padding: 2px 10px;
+}
+
+.AdicionaItemModal__text {
+	font-size: 1em;
+	font-weight: bold;
+	line-height: 100%;
+}
+
+.btnCreate {
+	justify-content: center;
+}

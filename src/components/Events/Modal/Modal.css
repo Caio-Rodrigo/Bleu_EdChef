@@ -25,7 +25,6 @@
 	right: 20px;
 	transition: all 1s;
 	width: 30px;
-	z-index: 1;
 }
 
 .Modal__close:hover {
@@ -42,4 +41,5 @@
 	display: flex;
 	justify-content: center;
 	justify-content: center;
+	width: 100%;
 }

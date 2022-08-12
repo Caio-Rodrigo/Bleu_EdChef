@@ -29,7 +29,6 @@ export default function Menu() {
 	const getById = async (itemId) => {
 		const response = await ItemService.getById(itemId);
 		setItemModal(response);
-		console.log(itemId);
 	};
 
 	useEffect(() => {

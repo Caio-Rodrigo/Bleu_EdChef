@@ -9,6 +9,7 @@
 	flex-wrap: wrap;
 	margin: 2rem;
 	justify-content: space-around;
+	z-index: auto;
 }
 
 @media (max-width: 600px) {

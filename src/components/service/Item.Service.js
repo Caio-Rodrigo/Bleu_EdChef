@@ -1,5 +1,6 @@
 import { Api } from '../API/Api';
 
+
 const parseResponse = (response) => response.json();
 
 const transformItem = (item) => {
@@ -19,10 +20,19 @@ const parseTransformItemId = (response) =>
 	parseResponse(response).then(transformItem);
 
 export const ItemService = {
-	getAll: () => fetch(Api.itemList(), { method: 'GET' }).then(parseTransformItem),
+	getAll: () =>
+		fetch(Api.itemList(), { method: 'GET' }).then(parseTransformItem),
 	getById: (id) =>
 		fetch(Api.itemById(id), { method: 'GET' }).then(parseTransformItemId),
-	create: () => fetch(Api.createItem(), { method: 'POST' }).then(parseResponse),
+	create: (item) =>
+		fetch(Api.createItem(), {
+			method: 'POST',
+			body: JSON.stringify(item),
+			mode: 'cors',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		}).then(transformItem),
 	updateItem: (id) =>
 		fetch(Api.updateItem(id), { method: 'PUT' }).then(parseResponse),
 	deleteItem: (id) =>

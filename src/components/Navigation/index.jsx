@@ -8,7 +8,7 @@ import './Navigation.css';
 
 
 
-export default function Navigation() {
+export default function Navigation({createItem}) {
 	return (
 		<nav id="nav">
 			<ul id="list">
@@ -21,7 +21,7 @@ export default function Navigation() {
 			</ul>
 			<div className="carrinho">
 				<Button clase="btn buy" nome={<TiShoppingCart />} />
-			<Button  clase="btn buy" nome={<BiAddToQueue />}/>
+			<Button  clase="btn buy" nome={<BiAddToQueue />} event={() => createItem()} />
 			</div>
 		</nav>
 	);

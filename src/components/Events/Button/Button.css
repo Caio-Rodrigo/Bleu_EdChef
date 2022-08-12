@@ -50,6 +50,16 @@
 	}
 }
 
+.btn.create{
+	background-color: #0c7df5;
+	width: 50%;
+	
+}
+
+.btn.create:hover{
+	background-color: #0c9b26d6;
+}
+
 .btn.add {
 	background-color: #0c7df5;
 }
