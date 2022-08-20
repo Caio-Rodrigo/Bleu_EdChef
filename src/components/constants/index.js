@@ -1,5 +1,4 @@
-export const ActionMode = Object.freeze({
-	DELETE: 'DELETE',
-	UPDATE: 'UPDATE',
-	NORMAL: 'NORMAL',
+export const EditState = Object.freeze({
+	ON: 'ON',
+	OFF: 'OFF',
 });

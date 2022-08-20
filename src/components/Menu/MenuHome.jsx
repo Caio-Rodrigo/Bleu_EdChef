@@ -1,7 +1,7 @@
-import Item from '../Item';
+import ItemHome from '../Item/ItemHome';
 import { useState, useEffect } from 'react';
 import { ItemService } from '../service/Item.Service';
-import ItemDetalhesModal from '../../components/Events/ItemModal/index';
+import ItemDetalhesModal from '../Events/ItemModal/index';
 import './Menu.css';
 
 export default function Menu({ createdItem, mode }) {
@@ -48,7 +48,7 @@ export default function Menu({ createdItem, mode }) {
 	return (
 		<div className="menuConteiner">
 			{menu.map((iten, index) => (
-				<Item
+				<ItemHome
 					mode={mode}
 					key={`menuIten-${index}`}
 					iten={iten}
