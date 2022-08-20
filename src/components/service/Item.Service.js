@@ -1,6 +1,5 @@
 import { Api } from '../API/Api';
 
-
 const parseResponse = (response) => response.json();
 
 const transformItem = (item) => {
@@ -16,14 +15,13 @@ const transformItem = (item) => {
 const parseTransformItem = (response) =>
 	parseResponse(response).then((items) => items.map(transformItem));
 
-const parseTransformItemId = (response) =>
-	parseResponse(response).then(transformItem);
+const parseTransformItemId = (response) => parseResponse(response).then(transformItem);
 
 export const ItemService = {
-	getAll: () =>
-		fetch(Api.itemList(), { method: 'GET' }).then(parseTransformItem),
-	getById: (id) =>
-		fetch(Api.itemById(id), { method: 'GET' }).then(parseTransformItemId),
+	getAll: () => fetch(Api.itemList(), { method: 'GET' }).then(parseTransformItem),
+
+	getById: (id) => fetch(Api.itemById(id), { method: 'GET' }).then(parseTransformItemId),
+
 	create: (item) =>
 		fetch(Api.createItem(), {
 			method: 'POST',
@@ -32,9 +30,15 @@ export const ItemService = {
 			headers: {
 				'Content-Type': 'application/json',
 			},
-		}).then(transformItem),
-	updateItem: (id) =>
-		fetch(Api.updateItem(id), { method: 'PUT' }).then(parseResponse),
-	deleteItem: (id) =>
-		fetch(Api.deleteItem(id), { method: 'DELETE' }).then(parseResponse),
+		}).then(parseTransformItemId),
+
+	updateItemById: (id, item) =>
+		fetch(Api.updateItemById(id), {
+			method: 'PUT',
+			body: JSON.stringify(item),
+			mode: 'cors',
+			headers: { 'Content-Type': 'application/json' },
+		}).then(parseResponse),
+
+	deleteItem: (id) => fetch(Api.deleteItem(id), { method: 'DELETE' }).then(parseResponse),
 };

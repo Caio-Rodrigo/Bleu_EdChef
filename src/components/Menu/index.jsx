@@ -4,7 +4,7 @@ import { ItemService } from '../service/Item.Service';
 import ItemDetalhesModal from '../../components/Events/ItemModal/index';
 import './Menu.css';
 
-export default function Menu() {
+export default function Menu({ createdItem, mode }) {
 	const [menu, setMenu] = useState([]);
 
 	const [itemSelected, setItemSelected] = useState({});
@@ -31,6 +31,16 @@ export default function Menu() {
 		setItemModal(response);
 	};
 
+	const addNewItem = (item) => {
+		const list = [...menu, item];
+		setMenu(list);
+	};
+
+	useEffect(() => {
+		if (createdItem) addNewItem(createdItem);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [createdItem]);
+
 	useEffect(() => {
 		getAll();
 	}, []);
@@ -39,6 +49,7 @@ export default function Menu() {
 		<div className="menuConteiner">
 			{menu.map((iten, index) => (
 				<Item
+					mode={mode}
 					key={`menuIten-${index}`}
 					iten={iten}
 					quantitySelected={itemSelected[index]}
@@ -50,10 +61,7 @@ export default function Menu() {
 			))}
 
 			{itemModal && (
-				<ItemDetalhesModal
-					item={itemModal}
-					closeModal={() => setItemModal(false)}
-				/>
+				<ItemDetalhesModal item={itemModal} closeModal={() => setItemModal(false)} />
 			)}
 		</div>
 	);

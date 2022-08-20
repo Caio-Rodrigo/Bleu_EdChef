@@ -9,7 +9,7 @@
 	color: #fff;
 	cursor: pointer;
 	transition: all 0.5s;
-	margin: 0.3rem .3em;
+	margin: 0.3rem 0.3em;
 	width: 100%;
 }
 
@@ -32,43 +32,48 @@
 .btn.remove.close:hover {
 	background-color: #bc0e08;
 	color: #fff;
-	
 }
 
 .btn.remove {
 	background-color: #f51c0c;
-
 }
 
 .btn.remove:hover {
 	background-color: #af170c;
 }
 
-@media(max-width:300px){
-	.btn.remove{
+@media (max-width: 300px) {
+	.btn.remove {
 		padding: 9px;
 	}
 }
 
-.btn.create{
+.btn.create:hover {
 	background-color: #0c7df5;
 	width: 50%;
-	
-}
-
-.btn.create:hover{
-	background-color: #0c9b26d6;
 }
 
 .btn.add {
-	background-color: #0c7df5;
+	background-color: #0474eacb;
+}
+
+.btnOn {
+	background-color: #132ecf;
+	font-size: 2rem;
+	border-radius: 3rem;
+}
+
+.btn.up:hover {
+	background-color: #49cceab0;
 }
 
 .btn.add:hover {
 	background-color: #07c42a;
 }
 
-.btn.buy {
+.btn.buy,
+.btn.up,
+.btn.create {
 	background-color: #0c7df573;
 	font-size: 2rem;
 	border-radius: 3rem;

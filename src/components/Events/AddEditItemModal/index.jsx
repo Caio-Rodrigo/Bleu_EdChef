@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import Button from '../Button/index';
 import Modal from '../Modal';
-import {ItemService} from '../../service/Item.Service';
-import './AddItemModal.css';
+import { ItemService } from '../../service/Item.Service';
+import './AddEditItemModal.css';
 
-export default function AddItemModal({ closeModal }) {
+export default function AddEditItemModal({ closeModal, onCreateItem }) {
 	const form = {
 		name: '',
 		description: '',
@@ -21,6 +21,9 @@ export default function AddItemModal({ closeModal }) {
 		};
 
 		const response = await ItemService.create(item);
+
+		onCreateItem(response);
+
 		closeModal();
 	};
 
@@ -65,14 +68,19 @@ export default function AddItemModal({ closeModal }) {
 						</label>
 						<input
 							id="image"
-							type="text"
+							type="url"
 							placeholder="foto do prato"
 							value={state.image}
 							onChange={(e) => handleChenge(e, 'image')}
 						/>
 					</div>
 					<div className="btnCreate">
-						<Button clase="btn create" nome="Cadastrar" type="submit" event={createItem} />
+						<Button
+							clase="btn create"
+							nome="Cadastrar"
+							type="submit"
+							event={createItem}
+						/>
 					</div>
 				</form>
 			</div>

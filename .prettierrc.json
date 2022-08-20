@@ -4,6 +4,6 @@
   "endOfLine": "lf",
   "tabWidth": 2,
   "arrowPosition": "always",
-  "printWidth": 80,
+  "printWidth": 90,
   "useTabs": true
 }
