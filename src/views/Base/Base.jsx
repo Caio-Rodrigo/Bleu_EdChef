@@ -7,14 +7,27 @@ import { useState } from 'react';
 
 export default function Base() {
 	const [canShowAddEditItemModal, setCanShowAddEditItemModal] = useState(false);
-
 	const [itemAdd, setItemAdd] = useState();
-
 	const [editMod, setEditMod] = useState(EditState.OFF);
+	const [updateItem, setUpdateItem] = useState();
+	const [deleteItem, setDeleteItem] = useState();
 
 	const handleEdit = (event) => {
 		const modeActivity = editMod === event ? EditState.OFF : event;
 		setEditMod(modeActivity);
+	};
+	const handleDelete = (itemToDelete) => {
+		setDeleteItem(itemToDelete);
+	};
+	const handleUpdate = (itemToUpdate) => {
+		setUpdateItem(itemToUpdate);
+		setCanShowAddEditItemModal(true);
+	};
+	const handleCloseModal = () => {
+		setCanShowAddEditItemModal(false);
+		setItemAdd();
+		setUpdateItem();
+		setDeleteItem();
 	};
 
 	return (
@@ -25,11 +38,17 @@ export default function Base() {
 				updateItem={() => handleEdit(EditState.ON)}
 			/>
 			<div className="Home_container">
-				<MenuBase mode={editMod} createdItem={itemAdd} />
-
+				<MenuBase
+					mode={editMod}
+					createdItem={itemAdd}
+					updateItem={handleUpdate}
+					deleteItem={handleDelete}
+				/>
 				{canShowAddEditItemModal && (
 					<AddEditItemModal
-						closeModal={() => setCanShowAddEditItemModal(false)}
+						mode={editMod}
+						itemToUpdate={updateItem}
+						closeModal={handleCloseModal}
 						onCreateItem={(item) => setItemAdd(item)}
 					/>
 				)}

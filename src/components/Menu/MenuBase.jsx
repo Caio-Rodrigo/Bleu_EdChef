@@ -1,10 +1,10 @@
 import ItemBase from '../Item/ItemBase';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { ItemService } from '../service/Item.Service';
 import ItemDetalhesModal from '../Events/ItemModal/index';
 import './Menu.css';
 
-export default function Menu({ createdItem, mode }) {
+export default function Menu({ createdItem, mode, updateItem, deleteItem }) {
 	const [menu, setMenu] = useState([]);
 
 	const [itemModal, setItemModal] = useState(false);
