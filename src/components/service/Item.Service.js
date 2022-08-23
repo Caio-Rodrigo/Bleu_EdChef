@@ -32,13 +32,14 @@ export const ItemService = {
 			},
 		}).then(parseTransformItemId),
 
-	updateItemById: (id, item) =>
-		fetch(Api.updateItemById(id), {
+	updateById: (id,item) => 
+		fetch(Api.updateItem(id), {
 			method: 'PUT',
 			body: JSON.stringify(item),
 			mode: 'cors',
 			headers: { 'Content-Type': 'application/json' },
 		}).then(parseResponse),
+	
 
 	deleteItem: (id) => fetch(Api.deleteItem(id), { method: 'DELETE' }).then(parseResponse),
 };

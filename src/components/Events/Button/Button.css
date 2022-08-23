@@ -58,9 +58,17 @@
 }
 
 .btnOn {
-	background-color: #132ecf;
+	background-color: #0ff5f9ba;
 	border-radius: 3rem;
 	font-size: 2rem;
+	transform: all .8s;
+}
+
+.btnDell {
+	background-color: #e90505de;
+	border-radius: 3rem;
+	font-size: 2rem;
+	transform: all .8s;
 }
 
 .btn.up:hover {

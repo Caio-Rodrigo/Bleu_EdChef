@@ -3,13 +3,17 @@ import { EditState } from '../constants';
 import { FcUpload, FcDeleteDatabase } from 'react-icons/fc';
 import './Item.css';
 
-export default function ItemBase({ iten, clickItem, mode }) {
+export default function ItemBase({ iten, clickItem, mode, updateItem, itemRemoved }) {
 	const upButton = (mode) => {
-		if (mode === EditState.ON) return <Button clase="update" nome={<FcUpload />} />;
-	};
-	const deleteButton = (mode) => {
 		if (mode === EditState.ON)
-			return <Button clase="delete" nome={<FcDeleteDatabase />} />;
+			return <Button clase="update" nome={<FcUpload />} event={()=> updateItem(iten.id)} />;
+		console.log();
+	};
+	
+	const deleteButton = (mode) => {
+		if (mode === EditState.DEL)
+			return <Button clase="delete" nome={<FcDeleteDatabase />} event={() =>itemRemoved(iten.id)} />;
+			// console.log();
 	};
 
 	return (

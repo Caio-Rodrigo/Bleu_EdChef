@@ -2,42 +2,64 @@ import { useState } from 'react';
 import Button from '../Button/index';
 import Modal from '../Modal';
 import { ItemService } from '../../service/Item.Service';
+import { EditState } from '../../constants';
 import './AddEditItemModal.css';
 
-export default function AddEditItemModal({ closeModal, onCreateItem }) {
+export default function AddEditItemModal({
+	closeModal,
+	onCreateItem,
+	onUpdateItem,
+	mode,
+	updateItem,
+}) {
 	const form = {
-		name: '',
-		description: '',
-		image: '',
+		name: updateItem?.name ?? '',
+		description: updateItem?.description ?? '',
+		image: updateItem?.image ?? '',
+	};
+	const [state, setState] = useState(form);
+
+	const handleChenge = (e, nome) => {
+		setState({ ...state, [nome]: e.target.value });
 	};
 
-	const createItem = async () => {
+	const handleSend = async () => {
 		const { name, description, image } = state;
 
 		const item = {
+			...(updateItem && { id: updateItem?.id }),
 			name,
 			description,
 			image,
 		};
+		const serviceCall = {
+			[EditState.OFF]: () => ItemService.create(item),
+			[EditState.ON]: () => ItemService.updateById(updateItem?.id, item),
+		};
+		const response = await serviceCall[mode]();
 
-		const response = await ItemService.create(item);
+		const actionResponse = {
+			[EditState.OFF]: () => onCreateItem(response),
+			[EditState.ON]: () => onUpdateItem(response),
+		};
 
-		onCreateItem(response);
+		actionResponse[mode]();
+
+		const reset = {
+			name: '',
+			description: '',
+			image: '',
+		};
+
+		setState(reset);
 
 		closeModal();
 	};
-
-	const [state, setstate] = useState(form);
-
-	const handleChenge = (e, nome) => {
-		setstate({ ...state, [nome]: e.target.value });
-	};
-
 	return (
 		<Modal closeModal={closeModal}>
 			<div className="AdicionaItemModal">
 				<form autoComplete="false">
-					<h2> Adicionar ao Cardápio</h2>
+					<h2>{EditState.ON === mode ? 'Atualizar' : 'Adicionar ao'} Cardapio</h2>
 					<div>
 						<label className="AdicionaItemModal__text" htmlFor="name">
 							Nome:
@@ -77,9 +99,9 @@ export default function AddEditItemModal({ closeModal, onCreateItem }) {
 					<div className="btnCreate">
 						<Button
 							clase="btn create"
-							nome="Cadastrar"
+							nome={EditState.OFF === mode ? 'Enviar' : 'Atualizar'}
 							type="submit"
-							event={createItem}
+							event={handleSend}
 						/>
 					</div>
 				</form>

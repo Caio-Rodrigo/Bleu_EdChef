@@ -1,10 +1,11 @@
 import ItemBase from '../Item/ItemBase';
 import { useState, useEffect, useCallback } from 'react';
 import { ItemService } from '../service/Item.Service';
-import ItemDetalhesModal from '../Events/ItemModal/index';
+import ItemDetalhesModal from '../Events/ItemModal';
+import { EditState } from '../constants';
 import './Menu.css';
 
-export default function Menu({ createdItem, mode, updateItem, deleteItem }) {
+export default function Menu({ createdItem, mode, updateItem, deleteItem, itemEditado, itemRemoved }) {
 	const [menu, setMenu] = useState([]);
 
 	const [itemModal, setItemModal] = useState(false);
@@ -16,25 +17,35 @@ export default function Menu({ createdItem, mode, updateItem, deleteItem }) {
 
 	const getById = async (itemId) => {
 		const response = await ItemService.getById(itemId);
-		setItemModal(response);
+		const mapper = {
+			[EditState.OFF]: () => setItemModal(response),
+			[EditState.ON]: () => updateItem(response),
+			[EditState.DEL]: () => deleteItem(response),
+		};
+		mapper[mode]();
 	};
 
-	const addNewItem = (item) => {
-		const list = [...menu, item];
-		setMenu(list);
-	};
+	const addNewItem = useCallback(
+		(item) => {
+			const list = [...menu, item];
+			setMenu(list);
+		},
+		[menu],
+	);
 
 	useEffect(() => {
-		if (createdItem) addNewItem(createdItem);
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [createdItem]);
+		if (createdItem && !menu.map(({ id }) => id).includes(createdItem.id)) {
+			addNewItem(createdItem);
+		}
+	}, [addNewItem, createdItem, menu]);
 
 	useEffect(() => {
 		getAll();
-	}, []);
+	}, [itemEditado,  itemRemoved ]);
 
 	return (
 		<div className="menuConteiner">
+			
 			{menu.map((iten, index) => (
 				<ItemBase
 					mode={mode}
@@ -42,6 +53,7 @@ export default function Menu({ createdItem, mode, updateItem, deleteItem }) {
 					iten={iten}
 					index={index}
 					clickItem={(itemId) => getById(itemId)}
+					updateItem={(itemId) => getById(itemId)}
 				/>
 			))}
 
