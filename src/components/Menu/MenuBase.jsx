@@ -5,7 +5,14 @@ import ItemDetalhesModal from '../Events/ItemModal';
 import { EditState } from '../constants';
 import './Menu.css';
 
-export default function Menu({ createdItem, mode, updateItem, deleteItem, itemEditado, itemRemoved }) {
+export default function Menu({
+	createdItem,
+	mode,
+	updateItem,
+	deleteItem,
+	itemEditado,
+	itemRemoved,
+}) {
 	const [menu, setMenu] = useState([]);
 
 	const [itemModal, setItemModal] = useState(false);
@@ -38,15 +45,12 @@ export default function Menu({ createdItem, mode, updateItem, deleteItem, itemEd
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [createdItem]);
 
-	
-
 	useEffect(() => {
 		getAll();
-	}, [ ]);
+	}, []);
 
 	return (
 		<div className="menuConteiner">
-			
 			{menu.map((iten, index) => (
 				<ItemBase
 					mode={mode}
@@ -55,6 +59,7 @@ export default function Menu({ createdItem, mode, updateItem, deleteItem, itemEd
 					index={index}
 					clickItem={(itemId) => getById(itemId)}
 					updateItem={(itemId) => getById(itemId)}
+					itemRemoved={(itemId) => deleteItem(itemId)}
 				/>
 			))}
 

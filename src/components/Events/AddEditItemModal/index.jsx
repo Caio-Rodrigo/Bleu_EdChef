@@ -43,10 +43,9 @@ export default function AddEditItemModal({
 			[EditState.OFF]: async () => await ItemService.create(item),
 
 			[EditState.ON]: async () => {
-				await ItemService.updateById(updateItem?.id, item)
-				window
+				await ItemService.updateById(updateItem?.id, item);
+				window.location.reload();
 			},
-
 		};
 		const response = await serviceCall[mode]();
 
