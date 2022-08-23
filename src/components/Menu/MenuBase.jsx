@@ -34,14 +34,15 @@ export default function Menu({ createdItem, mode, updateItem, deleteItem, itemEd
 	);
 
 	useEffect(() => {
-		if (createdItem && !menu.map(({ id }) => id).includes(createdItem.id)) {
-			addNewItem(createdItem);
-		}
-	}, [addNewItem, createdItem, menu]);
+		if (createdItem) addNewItem(createdItem);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [createdItem]);
+
+	
 
 	useEffect(() => {
 		getAll();
-	}, [itemEditado,  itemRemoved ]);
+	}, [ ]);
 
 	return (
 		<div className="menuConteiner">

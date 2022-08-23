@@ -30,7 +30,7 @@ export const ItemService = {
 			headers: {
 				'Content-Type': 'application/json',
 			},
-		}).then(parseTransformItemId),
+		}).then(response => response.json()),
 
 	updateById: (id,item) => 
 		fetch(Api.updateItem(id), {

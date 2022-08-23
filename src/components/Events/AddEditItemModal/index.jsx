@@ -4,6 +4,7 @@ import Modal from '../Modal';
 import { ItemService } from '../../service/Item.Service';
 import { EditState } from '../../constants';
 import './AddEditItemModal.css';
+import { useEffect } from 'react';
 
 export default function AddEditItemModal({
 	closeModal,
@@ -17,24 +18,35 @@ export default function AddEditItemModal({
 		description: updateItem?.description ?? '',
 		image: updateItem?.image ?? '',
 	};
-	const [state, setState] = useState(form);
 
+	useEffect(() => {
+		console.log(form);
+	}, [form]);
+
+	const [state, setState] = useState(form);
+	console.log('ok');
 	const handleChenge = (e, nome) => {
 		setState({ ...state, [nome]: e.target.value });
 	};
 
-	const handleSend = async () => {
+	const handleSend = async (e) => {
+		e.preventDefault();
 		const { name, description, image } = state;
-
 		const item = {
 			...(updateItem && { id: updateItem?.id }),
 			name,
 			description,
 			image,
 		};
+
 		const serviceCall = {
-			[EditState.OFF]: () => ItemService.create(item),
-			[EditState.ON]: () => ItemService.updateById(updateItem?.id, item),
+			[EditState.OFF]: async () => await ItemService.create(item),
+
+			[EditState.ON]: async () => {
+				await ItemService.updateById(updateItem?.id, item)
+				window
+			},
+
 		};
 		const response = await serviceCall[mode]();
 
@@ -101,7 +113,7 @@ export default function AddEditItemModal({
 							clase="btn create"
 							nome={EditState.OFF === mode ? 'Enviar' : 'Atualizar'}
 							type="submit"
-							event={handleSend}
+							event={(e) => handleSend(e)}
 						/>
 					</div>
 				</form>
